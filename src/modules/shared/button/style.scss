@@ -1,0 +1,14 @@
+@import "../../../theme/style.scss";
+
+.button {
+  padding: 10px 15px;
+  border: none;
+  background-color: $color;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  &:hover {
+    transform: scale(1.05);
+  }
+}
