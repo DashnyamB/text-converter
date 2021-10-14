@@ -1,11 +1,9 @@
 import "./App.scss";
 import TextConverterPage from "./modules/core/textConverterPage";
-import Button from "./modules/shared/button";
-import Input from "./modules/shared/input";
 
 function App() {
   return (
-    <div>
+    <div className="container is-max-desktop">
       <TextConverterPage />
     </div>
   );
