@@ -1,12 +1,12 @@
 import "./App.scss";
+import TextConverterPage from "./modules/core/textConverterPage";
 import Button from "./modules/shared/button";
 import Input from "./modules/shared/input";
 
 function App() {
   return (
     <div>
-      <Button text="Бичвэр боловсруулах"></Button>
-      <Input />
+      <TextConverterPage />
     </div>
   );
 }
