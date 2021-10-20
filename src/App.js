@@ -3,7 +3,7 @@ import TextConverterPage from "./modules/core/textConverterPage";
 
 function App() {
   return (
-    <div className="container is-max-desktop">
+    <div className="container is-widescreen">
       <TextConverterPage />
     </div>
   );
