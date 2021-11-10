@@ -14,7 +14,7 @@ const TextArea = ({ placeholder, color, size, disabled, onChange }) => {
       ${size ? `is-${size}` : ""}
       ${disabled && "disabled"}`}
       placeholder={getPlaceholder()}
-      onChange={(e) => onChange(e.target.value)}
+      onChange={(e) => onChange(e)}
     ></textarea>
   );
 };

@@ -150,8 +150,8 @@ const TextConverterPage = () => {
             </div>
           </div>
           <div className="column">
-            <div class="table-container">
-              <table class="table is-bordered is-fullwidth">
+            <div className="table-container">
+              <table className="table is-bordered is-fullwidth">
                 <thead>
                   <tr>
                     {Object.values(tableHeaders).map((header) => (

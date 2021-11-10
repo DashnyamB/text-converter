@@ -27,7 +27,7 @@ const Header = () => {
           <div className="navbar-item">
             <div className="field is-grouped">
               <p className="control">
-                <Link to="/how">Хэрхэн ажилладаг вэ?</Link>
+                <Link to="/treebank">Мод хэлбэрээр харах</Link>
               </p>
               <p className="control">
                 <Link to="/about">Бидний тухай</Link>
