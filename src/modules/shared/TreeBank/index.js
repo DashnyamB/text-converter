@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import Button from "../button";
-import Header from "../Header";
 import TextArea from "../text-area";
+import {d3Tree} from "./d3Tree";
+import {parse} from "./parser";
+import * as $ from "jquery";
 
 const TreeBank = () => {
   const [text, setText] = useState();
@@ -17,21 +19,32 @@ const TreeBank = () => {
 
   const onSub = () => {
     console.log(text);
-    // var textArea = document.getElementById("text");
-    // // Reset the colour
-    // textArea.style.color = "black";
-    // var data = textArea.value;
-    // // Escape backslashes
-    // data = data.replace(/\\/g, "\\\\");
-    // // Parse the string into JSON (defined in parser.js)
-    // // var jsonData = parse(data);
-    // var sentenceString = "";
-    // // sentenceString = getYield(jsonData, sentenceString);
-    // // Add the sentence (yield of the JSON tree) to the sentence container
-    // document.getElementById("sentence-container").innerHTML =
-    //   "<p>" + sentenceString + "</p>";
-    // // d3Tree(jsonData);
-    // return false;
+    var textArea = document.getElementById("text");
+    // Reset the colour
+    textArea.style.color = "black";
+    var data = textArea.value;
+    // Escape backslashes
+    data = data.replace(/\\/g, "\\\\");
+    //TODO use this as url parameter https://stackoverflow.com/questions/18697034/how-to-pass-parameters-in-ajax-post/35590754
+    // url: 'superman?' + jQuery.param(data),
+    $.ajax("https://61923e19aeab5c0017105e88.mockapi.io/tree/convert", {
+      type: "POST" , success: (response) => {
+        var jsonData = parse(response.message);
+
+        //TODO: here is the text input line
+        // var jsonData = parse(data);
+
+        if (jsonData) {
+          var sentenceString = "";
+          sentenceString = getYield(jsonData, sentenceString);
+          // Add the sentence (yield of the JSON tree) to the sentence container
+          document.getElementById("sentence-container").innerHTML =
+            "<p>" + sentenceString + "</p>";
+          d3Tree(jsonData);
+        }
+      }
+    })
+    return false;
   };
 
   const getYield = (node, string) => {
@@ -46,7 +59,7 @@ const TreeBank = () => {
   };
 
   const loadTextArea = (type) => {
-    var textArea = document.getElementById("text");
+    var textArea = document.getElementsByTagName("");
     textArea.style.color = "black";
     if (type == "PTB") textArea.value = defaultPTBText;
     else if (type == "CCG") textArea.value = defaultCCGText;
@@ -54,10 +67,9 @@ const TreeBank = () => {
 
   return (
     <div class="wrapper">
-      <Header />
       <div>
         <div id="input-text" className="mt-5">
-          <TextArea onChange={changeText} color="primary" />
+          <TextArea id="bilguun" onChange={changeText} color="primary"/>
         </div>
         <div id="input-submit" className="mt-2">
           <Button

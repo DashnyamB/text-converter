@@ -1,12 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import TextArea from "../../shared/text-area";
 import TreeBank from "../../shared/TreeBank";
 
-const TreeBankPage = () => {
-  return (
-    <div>
-      <TreeBank />
-    </div>
-  );
-};
+export const TreeBankPage = ()=>{
+  return (<TreeBank></TreeBank>);
+}
 
 export default TreeBankPage;

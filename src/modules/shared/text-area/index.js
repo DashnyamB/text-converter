@@ -9,6 +9,7 @@ const TextArea = ({ placeholder, color, size, disabled, onChange }) => {
 
   return (
     <textarea
+      id="text"
       className={`textarea 
       ${color ? `is-${color}` : ""} 
       ${size ? `is-${size}` : ""}
