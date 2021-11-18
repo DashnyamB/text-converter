@@ -1,5 +1,3 @@
-// Inspired by "D3.js Drag and Drop Zoomable Tree" by Rob Schmuecker <robert.schmuecker@gmail.com>
-// https://gist.github.com/robschmuecker/7880033
 import * as d3 from 'd3';
 import * as $ from 'jquery';
 
