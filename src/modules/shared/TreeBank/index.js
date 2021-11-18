@@ -33,8 +33,6 @@ const TreeBank = () => {
           var sentenceString = "";
           sentenceString = getYield(jsonData, sentenceString);
           // Add the sentence (yield of the JSON tree) to the sentence container
-          document.getElementById("sentence-container").innerHTML =
-            "<p>" + sentenceString + "</p>";
           d3Tree(jsonData);
         }
       }
@@ -68,7 +66,6 @@ const TreeBank = () => {
           />
         </div>
         <div id="tree-container"></div>
-        <div id="sentence-container"></div>
       </div>
     </div>
   );
