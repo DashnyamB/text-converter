@@ -98,19 +98,6 @@ export function d3Tree(treeData) {
         .call(zoomListener)
 		.on("dblclick.zoom", null);
 
-	// The arrowmarker to be appended at the end of each path
-	// TODO Looks terrible (not currently used)
-	baseSvg.append("marker")
-		.attr("id", "markerArrow")
-		.attr("markerWidth", 4)
-		.attr("markerHeight", 4)
-		.attr("refY","2")
-		.attr("refX", "10")
-		.attr("orient", "auto")
-		.append("polygon")
-		.attr("points", "0,0 4,2 0,4")
-		.attr("style", "fill: #ccc");
-
     // Helper functions for collapsing and expanding nodes.
     function collapse(d) {
         if (d.children) {

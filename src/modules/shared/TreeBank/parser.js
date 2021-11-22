@@ -1,5 +1,3 @@
-// Inspired by phpSyntaxTree by Andre Eisenbach <andre@ironcreek.net>
-// https://code.google.com/p/phpsyntaxtree/
 import * as jQuery from 'jquery';
 
 var pos = 0;
@@ -16,10 +14,7 @@ export function parse(textData) {
 
   data = textData;
 
-  // If this is a CCG tree keep only the categories and words
   if (data.match(/<T\s+(.*?)\s+[0-9]+\s+[0-9]+>/)) {
-    // Replace any category-internal ()'s with [] to avoid confusing the parser
-    // will be changed back later in TreeNode.toJSON()
     data = data.replace(/<T\s+(.*?)\s+[0-9]+\s+[0-9]+>/g, function (a, b) {
       return b.replace(/\[/g, "{").replace(/\]/g, "}").replace(/\(/g, "[").replace(/\)/g, "]");
     });
@@ -28,11 +23,9 @@ export function parse(textData) {
     });
   }
 
-  // Clean up
   data = data.replace(/\s+/g, " ");
   data = data.replace(/\)\s+\(/g, ")(");
   data = data.replace(/\(\s+\(/g, "((");
-  // Not sure why I have to do this twice... apparently
   data = data.replace(/\)\s+\)/g, "))").replace(/\)\s+\)/g, "))");
 
   // Parse the string
