@@ -24,7 +24,9 @@ const TreeBank = () => {
     // url: 'superman?' + jQuery.param(data),
     $.ajax("https://61923e19aeab5c0017105e88.mockapi.io/tree/convert", {
       type: "POST" , success: (response) => {
-        var jsonData = parse(response.message);
+        // var jsonData = parse(response.message);
+        var jsonData = parse(text);
+        console.log(jsonData )
 
         //TODO: here is the text input line
         // var jsonData = parse(data);
